@@ -21,7 +21,7 @@
 
 \author{
 	Jing Wang
-	Maintainer: Bing Zhang <bing.zhang@Vanderbilt.edu>
+	Maintainer: Jing Wang <jing.wang.2@vanderbilt.edu>
 }
 
 \references{
