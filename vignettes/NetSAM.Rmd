@@ -72,20 +72,13 @@ with more than 10,000 nodes, a computer with at least 16GB memory is recommended
 NetSAM package requires the following packages: `igraph` (>=0.6-1),
 `seriation` (>=1.0-6), `WGCNA` (>=1.34.0), `doParallel` (>=1.0.10),
 `foreach` (>=1.4.0), `tools` (>=3.0.0), `biomaRt` (>=2.18.0),
-`GO.db` (>=2.10.0), `R2HTML` (>=2.2.0) and `survival` (>=2.37-7), which can be installed as follows.
+`GO.db` (>=2.10.0), `R2HTML` (>=2.2.0) and `survival` (>=2.37-7). These
+dependencies are installed automatically together with NetSAM.
 
 ```{r}
-install.packages("igraph")
-install.packages("seriation")
-install.packages("WGCNA")
-install.packages("snow")
-install.packages("doSNOW")
-install.packages("foreach")
-source("http://bioconductor.org/biocLite.R")
-biocLite("biomaRt")
-biocLite("GO.db")
-install.packages("R2HTML")
-install.packages("survival")
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("NetSAM")
 ```
 
 # Network Seriation and Modularization

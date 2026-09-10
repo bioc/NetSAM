@@ -1,0 +1,16 @@
+CHANGES IN VERSION 1.53.1
+-------------------------
+
+BUG FIXES
+
+    o Wrapped the Ensembl BioMart queries in the mapToSymbol examples in
+      try() so that a temporary outage of the Ensembl service no longer
+      aborts 'R CMD check'.
+
+    o Replaced the removed biocLite() calls in the vignette installation
+      instructions with BiocManager::install().
+
+OTHER CHANGES
+
+    o Added biocViews terms to DESCRIPTION so that the package is
+      categorized on the Bioconductor package index.
