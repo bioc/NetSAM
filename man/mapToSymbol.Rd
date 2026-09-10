@@ -54,28 +54,31 @@ mapToSymbol(inputData, organism="hsapiens", inputType="genelist", idType="auto",
 
 \examples{
 	
+	###the examples below query Ensembl BioMart and are wrapped in try() so that
+	###a temporary unavailability of the Ensembl service does not abort them###
+	
 	###transform ids from a gene list to gene symbols###
 	geneListDir <- system.file("extdata","exampleGeneList.txt",package="NetSAM")
 	geneList <- read.table(geneListDir,header=FALSE,sep="\t",stringsAsFactors=FALSE)
 	geneList <- as.vector(as.matrix(geneList))
-	geneList_symbol <- mapToSymbol(inputData=geneList, organism="hsapiens", inputType="genelist",idType="affy_hg_u133_plus_2")
+	geneList_symbol <- try(mapToSymbol(inputData=geneList, organism="hsapiens", inputType="genelist",idType="affy_hg_u133_plus_2"))
 	
 	###transform ids in the input network to gene symbols###
 	inputNetwork <- system.file("extdata","exampleNetwork_nonsymbol.net",package="NetSAM")
-	network_symbol <- mapToSymbol(inputData=inputNetwork,organism="hsapiens",inputType="network",idType="entrezgene_id",edgeType="unweighted")
+	network_symbol <- try(mapToSymbol(inputData=inputNetwork,organism="hsapiens",inputType="network",idType="entrezgene_id",edgeType="unweighted"))
 	
 	###transform ids in the input matrix to gene symbols###
 	inputMatDir <- system.file("extdata","exampleExpressionData_nonsymbol.cct",package="NetSAM")
-	matrix_symbol <- mapToSymbol(inputData=inputMatDir,organism="hsapiens",inputType="matrix",idType="affy_hg_u133_plus_2",collapse_mode="maxSD")
+	matrix_symbol <- try(mapToSymbol(inputData=inputMatDir,organism="hsapiens",inputType="matrix",idType="affy_hg_u133_plus_2",collapse_mode="maxSD"))
 	
 	###transform ids in the sbt file to gene symbols###
 	inputSBTDir <- system.file("extdata","exampleSBT.sbt",package="NetSAM")
-	sbt_symbol <- mapToSymbol(inputData= inputSBTDir,organism="hsapiens",inputType="sbt",idType="affy_hg_u133_plus_2")
+	sbt_symbol <- try(mapToSymbol(inputData= inputSBTDir,organism="hsapiens",inputType="sbt",idType="affy_hg_u133_plus_2"))
 	
 	###transform ids in the sct file to gene symbols###
 	inputSCTDir <- system.file("extdata","exampleSCT.sct",package="NetSAM")
-	sct_symbol <- mapToSymbol(inputData= inputSCTDir,organism="hsapiens",inputType="sct",idType="affy_hg_u133_plus_2",collapse_mode="min")
-
+	sct_symbol <- try(mapToSymbol(inputData= inputSCTDir,organism="hsapiens",inputType="sct",idType="affy_hg_u133_plus_2",collapse_mode="min"))
+	
 }
 
 \keyword{ methods }
